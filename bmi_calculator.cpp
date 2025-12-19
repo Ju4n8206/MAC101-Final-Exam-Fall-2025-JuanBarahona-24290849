@@ -2,8 +2,8 @@
  * CS101 Final Exam - File 2: bmi_calculator.cpp
  * The Tool Test: BMI Calculator
  *
- * Student Name: ________________________
- * Date: ________________________
+ * Student Name: Juan Barahona
+ * Date:12/18/2026
  *
  * OBJECTIVE:
  * Create an interactive program that calculates a user's Body Mass Index (BMI).

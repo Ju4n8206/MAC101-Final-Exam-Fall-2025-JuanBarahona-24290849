@@ -14,65 +14,49 @@
  * 3. Calculate BMI using the formula: BMI = weight / (height × height)
  * 4. Display the calculated BMI to the user
  * 5. BONUS: Tell the user their BMI category (Underweight, Normal, Overweight, Obese)
- *
- * HINTS:
- * - Use 'double' or 'float' for decimal numbers
- * - Use 'cin' to get input from the user
- * - Use 'cout' to display messages and results
- *
- * BMI CATEGORIES (BONUS):
- * - Underweight: BMI < 18.5
- * - Normal weight: BMI 18.5 - 24.9
- * - Overweight: BMI 25 - 29.9
- * - Obese: BMI >= 30
- *
- * GRADING FOCUS:
- * - Can you get input from the user?
- * - Can you perform the calculation correctly?
- * - Can you display the result in a user-friendly way?
  */
 
 #include <iostream>
+#include <string>
 using namespace std;
 
-int main()
-{
-  // TODO: Declare variables for weight, height, and BMI
-  // Use 'double' so you can handle decimal values
-  // Hint: You'll need three double variables
-
-  // TODO: Greet the user and explain what the program does
-  cout << "Welcome to the BMI Calculator!" << endl;
+int main(){
+  
+  string name, decision;
+  double  weight, height, bmi;
+  
+  cout << "please enter your name: ";// with "cout" you give the user a question or something to answer
+  cin >> name;                        //With "cin" the user can provide/write the necessary information.
+  cout << "\nWelcome "<<name<<"  to the BMI Calculator!" << endl;
   cout << "This program will calculate your Body Mass Index." << endl;
   cout << endl;
-
-  // TODO: Ask for the user's weight in kilograms
-  // Hint: Use cout to ask the question, then cin to store the answer in your weight variable
-
-  // TODO: Ask for the user's height in meters
-  // Hint: Same pattern as weight - ask with cout, capture with cin
-
-  // TODO: Calculate the BMI
-  // Formula: BMI = weight / (height × height)
-  // Hint: Divide weight by height squared. Remember to use * for multiplication in C++
-
-  // TODO: Display the result
-  // Hint: Use cout to display a message and the bmi variable
-
-  // BONUS TODO: Add if-else statements to tell the user their BMI category
-  // THINK ABOUT:
-  // - You need to check the bmi value against the category thresholds
-  // - Use if, else if, and else to handle the different ranges
-  // - Start with the lowest threshold (< 18.5) and work your way up
-  //
-  // STRUCTURE HINT:
-  // if(bmi is less than first threshold) {
-  //     tell user first category
-  // } else if(bmi is less than second threshold) {
-  //     tell user second category
-  // } ... continue for all categories
-
+  cout << "please enter your weight in kilograms: ";
+  cin >> weight;
+  cout << "\nnow please enter your height in meters: ";
+  cin >> height;
+  
+  bmi = weight / (height * height);//Here, the acronym BMI (which stands for Body Mass Index) is
+                                  //assigned as the result of the equation "weight / (height * height)"
+  
+  cout << "\nDo you want to know your BMI category? (yes/no): ";
+  cin >> decision;//Here I give the user the option to decide whether or not they want to know the information.
+  
+  if (decision == "yes" || decision == "Yes") {//If the answer is yes, the following code will be executed.
+        cout << "\nYour BMI is: " << bmi << endl;
+        if (bmi < 18.5) {//With this, I make it calculate the BMI to determine the category.
+            cout << "your BMI Category is: Underweight" << endl;//If the above is correct, then we proceed to write this.
+        } else if (bmi < 25) {
+            cout << "your BMI Category is: Normal" << endl;
+        } else if (bmi < 30) {
+            cout << "your BMI Category is: Overweight" << endl;
+        } else {
+            cout << "your BMI Category is: Obese" << endl;
+        }
+    } else {//If the answer to the question is not yes, the following code is executed and everything before is skipped.
+        cout << "Okay no problem." << endl;
+        cout << "\nYour BMI is: " << bmi << endl;
+    }
   cout << "\nThank you for using the BMI Calculator!" << endl;
 
-  return 0;
+return 0;
 }
